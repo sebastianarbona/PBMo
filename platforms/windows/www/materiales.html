@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Materiales del Alumno-Pizarra Blanca Mobile</title>
+
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/bud-green.theme.css"/>
+	<link href="css/reset.css" rel="stylesheet"/>
+	<link href="css/layout.css" rel="stylesheet"/>
+	<link href="css/components.css" rel="stylesheet"/>
+	<link href="css/plugins.css" rel="stylesheet"/>
+	<link href="css/themes/bud-green.theme.css" rel="stylesheet" id="theme"/>
+	<link href="css/custom.css" rel="stylesheet"/>
+	<link href="css/animate.min.css" rel="stylesheet"/>
+
+	<script src="cordova.js"><!--  --></script>
+	<script src="js/jquery-1.9.1.min.js"><!--  --></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"><!--  --></script>
+    <script src="js/bootstrap.min.js"><!--  --></script>
+</head>
+<body>
+	<div data-role="page" id="datos" class="main-content animated fadeInLeft" style="background: #81b71a">
+		<div class="panel rounded shadow panel-teal" style="background: #81b71a; border-color: #81b71a">
+			<div style="background: #81b71a; border-color: #81b71a; margin-left: 1%">
+				<div class="row">
+					<li class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+						<a class="ui-link ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" style="background: white; border-color: grey; color: grey" href="#" onclick="opciones()"></a>
+					</li>
+					<span class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><img src="img/logo-blanco.png" style="width: 100%"/></span>
+				</div>
+				<div data-role="navbar" id="opciones" hidden="true">
+					<ul style="list-style: outside none none">
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="home" href="#" onclick="home()">Home</a></li>
+						</div>
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="gear" href="#" onclick="configuracion()">Configuraci&#243;n</a></li>
+					    </div>
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="delete" href="#" onclick="cerrarSesion()">Cerrar Sesi&#243;n</a></li>
+						</div>
+					</ul>
+				</div>
+			</div>
+			</br>
+			<div class="panel-heading">
+				<div class="pull-left">
+					<h3 class="panel-title">Materiales</h3>
+				</div>
+				<div class="clearfix">
+					<!--   -->
+				</div>
+			</div>
+			<div class="panel-body">
+				<form id="formFiltro" role="search">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="ui-field-contain">
+								<label for="most" class="control-label">Materias: </label>
+								<select name="idMateria" id="combonota" class="col-sm-12">
+		                        	<option value="-1" id="opDef">Seleccionar Materia</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="ui btn">
+								<a type="button" id="btnFiltro" href="#" class="ui-btn ui-icon-search ui-btn-inline ui-btn-icon-left ui-corner-all ui-shadow">
+							  		Filtrar
+								</a>
+							</div>
+						</div>
+					</div>
+				</form>
+				<br/>
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover table-striped table-teal" id="table">
+						<thead>
+							<tr>
+								<th>Fecha</th>
+								<th>Fecha l&#237;mite</th>
+								<th>T&#237;tulo</th>
+								<th>Tipo material</th>
+								<th>Descripci&#243;n</th>
+								<th>Descarga</th>
+							</tr>
+						</thead>
+						<div id="body">
+							<tbody id="material">
+								<!--  -->	
+							</tbody>
+						</div>	
+					</table>
+				</div><!-- /.table-responsive -->
+				<div class="form-footer" >
+					<center>
+						<a id="web" href="#web" rel="external">Presione aqui para ir a versi&#243;n WEB</a>
+					</center>
+					<div class="pull-left">
+						<button id="volver" href="hijos.html" class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all ui-shadow">Volver</button>
+					</div>
+					<div class="pull-right">
+						<button id="salir" href="index.html" class="ui-btn ui-icon-delete ui-btn-icon-left ui-corner-all ui-shadow">Salir</button>
+					</div>
+					<div class="clearfix"> <!--   --> </div>
+				</div>			
+			</div><!-- /.panel-body -->
+		</div>
+	</div> 
+	<script>
+		var datos = location.search; 
+		datos = datos.substr(1,datos.length);
+		var arrVariables = datos.split ("&"); 
+		var arrVar0 = arrVariables[0].split ("="); 
+		var idHijo = arrVar0[1].split (",");
+		var idPadre = localStorage.getItem("idPadre");
+		function opciones(){
+			if($("#opciones").attr("hidden") == "hidden"){
+				$("#opciones").removeAttr('hidden');		
+			}else{
+				$("#opciones").attr('hidden','true');
+			}
+		}
+		function abrir(id){
+			window.open('http://ar.pizarrablanca.org/padres/materiales/abrir/'+id , '_system')
+		}
+		function cerrarSesion(){
+			delete localStorage["idPadre"]; // Para cerrar sesion
+			window.location.replace('index.html');
+		}
+		function configuracion(){
+			window.location.replace('configuracion.html?pantalla=materiales&idHijo='+idHijo);
+		}
+		function home(){
+			window.location.replace('index.html');
+		}
+		$(document).on('pageinit', '#datos', function(){
+			$("#volver").on("click",function(event) {
+				window.location.replace('datos.html?'+datos);
+			});
+			$("#salir").on("click",function(event) {
+				navigator.app.exitApp();
+			});
+			$('#web').on("click",function(event) {
+				event.preventDefault();
+				window.open("http://pizarrablanca.org/", '_system');
+			});
+			$.ajax({
+				url: 'http://ar.pizarrablanca.org/padres/mobile/materiales?idPadre='+idPadre+'&'+datos,
+		        dataType: "json",
+		        async: true,
+		        success: function (result) {
+		        	$.each(result, function(i, row) {
+		        		var fecha = new Date(row[0]).toJSON().slice(0,10);
+		        		var fechaArr = fecha.split("-");
+		        		var fechaFormat = fechaArr[2]+ "/" +fechaArr[1]+ "/" +fechaArr[0];
+
+		        		var fechaLimit = new Date(row[1]).toJSON().slice(0,10);
+		        		var fechaLimitArr = fechaLimit.split("-");
+		        		var fechaLimitFormat = fechaLimitArr[2]+ "/" +fechaLimitArr[1]+ "/" +fechaLimitArr[0];
+		        		$('#material').append('<tr>'+
+				        					 '	<td>'+ fechaFormat +'</td>'+
+				        					 '	<td>'+ fechaLimitFormat +'</td>'+
+				        					 '	<td>'+ row[2] +'</td>'+
+				        					 '	<td>'+ row[3] +'</td>'+
+				        					 '	<td>'+ row[4] +'</td>'+
+				        					 '	<td style="text-align:center" id="mate'+ row[5] +'"><!-- -->'+
+					        				 '	</td>'+
+					        				 '</tr>');
+		        		if(row[6] != null){
+			        		$("#mate"+ row[5]).append('<a onclick="abrir(\''+ row[5] +'\')" class="btn btn-primary btn-sm" style="border-radius: 3px; box-shadow: 2px 2px 5px #999; color: black; ">'+
+				        				 		      '   <i class="ui-icon-action ui-btn-icon-left"> <!-- --> <!-- --> </i> Descargar'+
+				        				 		      '</a>');
+		        		}else{
+		        			$("#mate"+ row[5]).append('No hay archivo para la descarga');
+		        		}
+			        });
+		        },
+		        error: function (request,error) {
+		            alert('Ha ocurrido un error de red, intente nuevamente por favor!');
+		        }
+		    });
+			$("#btnFiltro").click(function(event){
+				$.ajax({
+					url: 'http://ar.pizarrablanca.org/padres/mobile/materiales/filtro?idPadre='+idPadre+'&'+datos,
+					data: $("#formFiltro").serialize(),
+			        dataType: "json",
+			        async: true,
+			        success: function (result) {
+			        		$('#material').remove();
+			        		$('#table').append('<tbody id="material">');
+				        	$.each(result, function(i, row) {
+				        		var fecha = new Date(row[0]).toJSON().slice(0,10);
+				        		var fechaArr = fecha.split("-");
+				        		var fechaFormat = fechaArr[2]+ "/" +fechaArr[1]+ "/" +fechaArr[0];
+
+				        		var fechaLimit = new Date(row[1]).toJSON().slice(0,10);
+				        		var fechaLimitArr = fechaLimit.split("-");
+				        		var fechaLimitFormat = fechaLimitArr[2]+ "/" +fechaLimitArr[1]+ "/" +fechaLimitArr[0];
+				        		$('#material').append('<tr>'+
+						        					  '	<td>'+ fechaFormat +'</td>'+
+						        					  '	<td>'+ fechaLimitFormat +'</td>'+
+						        					  '	<td>'+ row[2] +'</td>'+
+						        					  '	<td>'+ row[3] +'</td>'+
+						        					  '	<td>'+ row[4] +'</td>'+
+						        					  '	<td style="text-align:center" id="mate'+ row[5] +'"><!-- -->'+
+								        			  '	</td>'+
+								        			  '</tr>');
+					        		if(row[6] != null){
+						        		$("#mate"+ row[5]).append('<a onclick="abrir(\''+ row[5] +'\')" class="btn btn-primary btn-sm" style="border-radius: 3px; box-shadow: 2px 2px 5px #999; color: black; ">'+
+							        				 		      '   <i class="ui-icon-action ui-btn-icon-left"> <!-- --> <!-- --> </i> Descargar'+
+							        				 		      '</a>');
+					        		}else{
+					        			$("#mate"+ row[5]).append('No hay archivo para la descarga');
+					        		}
+					        	});
+				        	$('#body').append('</tbody>');
+			        },
+			        error: function (request,error) {
+			            alert('Ha ocurrido un error de red, intente nuevamente por favor!');
+			        }
+			    });
+			});	
+			$.ajax({
+				url: 'https://ar.pizarrablanca.org/padres/mobile/materiales/combo?idPadre='+idPadre+'&'+datos,
+		        dataType: "json",
+		        async: true,
+		        success: function (result) {
+					if(result == ""){
+						$('#combonota').append('<option name="idMateria" id="idMateria" value="0">Mostrar todas</option>');
+					} else {
+						$.each(result, function(i, row) {
+			        		$('#combonota').append('<option name="idMateria|'+ row.materia.id +'" id="idMateria|'+ row.materia.id +'" value="'+ row.materia.id +'">'+ row.materia.nombre +'</option>');
+				        });
+					}
+					if(result != ""){
+						$('#combonota').append('<option name="idMateria" id="idMateria" value="0">Mostrar todas</option>');
+					}	
+			    },
+		        error: function (request,error) {
+		            alert('Ha ocurrido un error de red, intente nuevamente por favor!');
+		        }
+		    });	
+		});
+	</script>
+</body>
+</html>

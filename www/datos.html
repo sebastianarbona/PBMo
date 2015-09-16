@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Datos del Alumno-Pizarra Blanca Mobile</title>
+
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/bud-green.theme.css"/>
+	<link href="css/reset.css" rel="stylesheet"/>
+	<link href="css/layout.css" rel="stylesheet"/>
+	<link href="css/components.css" rel="stylesheet"/>
+	<link href="css/plugins.css" rel="stylesheet"/>
+	<link href="css/themes/bud-green.theme.css" rel="stylesheet" id="theme"/>
+	<link href="css/custom.css" rel="stylesheet"/>
+	<link href="css/animate.min.css" rel="stylesheet"/>
+
+	<script src="cordova.js"><!--  --></script>
+	<script src="js/jquery-1.9.1.min.js"><!--  --></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"><!--  --></script>
+    <script src="js/bootstrap.min.js"><!--  --></script>
+</head>
+<body>
+	<div data-role="page" id="datos" class="main-content animated fadeInLeft" style="background: #81b71a">
+		<div class="panel rounded shadow panel-default" style="background: #81b71a; border-color: #81b71a">
+			<div style="background: #81b71a; border-color: #81b71a; margin-left: 1%">
+				<div class="row">
+					<li class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+						<a class="ui-link ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" style="background: white; border-color: grey; color: grey" href="#" onclick="opciones()"></a>
+					</li>
+					<span class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><img src="img/logo-blanco.png" style="width: 100%"/></span>
+				</div>
+				<div data-role="navbar" id="opciones" hidden="true">
+					<ul style="list-style: outside none none">
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="home" href="#" onclick="home()">Home</a></li>
+						</div>
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="gear" href="#" onclick="configuracion()">Configuraci&#243;n</a></li>
+					    </div>
+						<div class="col-xs-4">
+							<li><a class="ui-link ui-btn ui-icon-delete ui-btn-icon-top ui-shadow ui-corner-all" style="background: white; border-color: grey; color: grey" data-icon="delete" href="#" onclick="cerrarSesion()">Cerrar Sesi&#243;n</a></li>
+						</div>
+					</ul>
+				</div>
+			</div>
+			</br>
+			<div data-role="main" class="panel-body" style="background: #81b71a">
+				<div class="header-content" id="nombreHijo">
+					<!--  -->
+				</div>
+				<div class="body-content">
+					<div id="blog-grid" class="row">
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="asistencias" href="#asistencias" class="blog-img">	
+									<img src="img/asistencias-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background: darkcyan"/>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="comunicados" href="#comunicados" class="blog-img">	
+									<img src="img/comunicados-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background: royalblue"/>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="materiales" href="#materiales" class="blog-img">	
+									<img src="img/materiales-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background: cornflowerblue"/>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="notas" href="#notas" class="blog-img">	
+									<img src="img/notas-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background:  slateblue"/>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="examenes" href="#examenes" class="blog-img">	
+									<img src="img/examenes-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background: orange"/>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+							<div class="rounded shadow">
+								<a id="sanciones" href="#sanciones" class="blog-img">	
+									<img src="img/sanciones-sf3.png" width="90%;" class="img-responsive full-width" alt="" style="background: orangered"/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-footer" >
+					<center>
+						<a id="web" href="#web"  rel="external" class="blog-img">Presione aqui para ir a versi&#243;n WEB</a>
+					</center>
+					<div class="pull-left">
+						<button id="volver" href="hijos.html" class="ui-btn ui-icon-back ui-btn-icon-left ui-corner-all ui-shadow">Volver</button>
+					</div>
+					<div class="pull-right">
+						<button id="salir" href="index.html" class="ui-btn ui-icon-delete ui-btn-icon-left ui-corner-all ui-shadow">Salir</button>
+					</div>
+					<div class="clearfix"> <!--   --> </div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	<script>
+		var datos = location.search; 
+		datos = datos.substr(1,datos.length);
+		var arrVariables = datos.split ("&"); 
+		var arrVar0 = arrVariables[0].split ("="); 
+		var idHijo = arrVar0[1].split (",");
+		var idPadre = localStorage.getItem("idPadre");
+	 	function opciones(){
+			if($("#opciones").attr("hidden") == "hidden"){
+				$("#opciones").removeAttr('hidden');		
+			}else{
+				$("#opciones").attr('hidden','true');
+			}
+		}
+		function cerrarSesion(){
+			delete localStorage["idPadre"]; // Para cerrar sesion
+			window.location.replace('index.html');
+		}
+		function configuracion(){
+			window.location.replace('configuracion.html?pantalla=datos&idHijo='+idHijo);
+		}
+		function home(){
+			window.location.replace('index.html');
+		}
+		$(document).on('pageinit', '#datos', function(){
+			$("#volver").on("click",function(event) {
+				window.location.replace('hijos.html');
+			});
+	
+			$("#salir").on("click",function(event) {
+				navigator.app.exitApp();
+			});
+
+			$('#web').on("click",function(event) {
+				event.preventDefault();
+				window.open("http://pizarrablanca.org/", '_system');
+			});
+
+			$("#examenes").on("click",function(event) {
+				window.location.replace('examenes.html?'+datos);
+			});
+			
+			$("#asistencias").on("click",function(event) {
+				window.location.replace('asistencias.html?'+datos);
+			});
+
+			$("#comunicados").on("click",function(event) {
+				window.location.replace('comunicados.html?'+datos);
+			});
+
+			$("#materiales").on("click",function(event) {
+				window.location.replace('materiales.html?'+datos);
+			});
+
+			$("#notas").on("click",function(event) {
+				window.location.replace('notas.html?'+datos);
+			});
+
+			$("#sanciones").on("click",function(event) {
+				window.location.replace('sanciones.html?'+datos);
+			});
+			
+			$.ajax({
+				url: 'http://ar.pizarrablanca.org/padres/mobile/hijo?idHijo='+idHijo,
+		        dataType: "json",
+		        async: true,
+		        success: function (result) {
+		        		$('#nombreHijo').append('<h2> ' + result.nombreCompleto + '</h2>');
+		        },
+		        error: function (request,error) {
+		            alert('Ha ocurrido un error de red, intente nuevamente por favor!');
+		        }
+		    });
+
+		});
+	</script>
+</body>
+</html>
