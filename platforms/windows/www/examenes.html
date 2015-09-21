@@ -131,8 +131,11 @@
 		        	$('#examen').remove();
 	        		$('#table').append('<tbody id="examen">');
 		        	$.each(result, function(i, row) {
+		        		var date = new Date(row[3]).toJSON().slice(0,10);
+		        		var dateArr = date.split("-");
+		        		var dateFormat = dateArr[2]+ "/" +dateArr[1]+ "/" +dateArr[0];
 		        		$('#examen').append('<tr> <td>'+
-		        							row[3] +'</td> <td>'+ row[1] +'</td> <td>'+ row[0] +'</td> <td>'+ row[2] +'</td> </tr>');
+		        							dateFormat +'</td> <td>'+ row[1] +'</td> <td>'+ row[0] +'</td> <td>'+ row[2] +'</td> </tr>');
 			        });
 		        	$('#body').append('</tbody>');
 		        },
